@@ -1,0 +1,25 @@
+# Stack related
+.stack-work/
+*~
+.stack-work-*/
+stack.yaml.lock
+
+# Compiled Haskell files
+*.hi
+*.o
+
+# Dependency directories
+.hpc/
+dist/
+cabal-dev/
+cabal-sandbox/
+
+# Editor and IDE specific files
+*~
+*.iml
+.idea/
+.vscode/
+
+# Other generated files
+*.swp
+.DS_Store
