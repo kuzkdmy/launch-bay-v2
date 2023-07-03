@@ -1,6 +1,22 @@
-module Main (main) where
+module Main where
 
-import Lib
+import Servant
+import Network.Wai.Handler.Warp (run)
+import GlobalConfigAPI
+import GlobalConfigHandler
+
+type API = GlobalConfigAPI
+
+api :: Proxy API
+api = Proxy
+
+server :: Server API
+server = globalConfigHandler
+
+app :: Application
+app = serve api server
 
 main :: IO ()
-main = someFunc
+main = do
+  putStrLn "Starting server on port 3000..."
+  run 3000 app

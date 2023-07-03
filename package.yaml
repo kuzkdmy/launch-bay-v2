@@ -2,8 +2,8 @@ name:                launch-bay-v2
 version:             0.1.0.0
 github:              "githubuser/launch-bay-v2"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
+author:              "Dima Kuzkin"
+maintainer:          "dmitriy.kuzkin@gmail.com"
 copyright:           "2023 Author name here"
 
 extra-source-files:
@@ -20,7 +20,11 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/githubuser/launch-bay-v2#readme>
 
 dependencies:
-- base >= 4.7 && < 5
+  - base >= 4.14 && < 5
+  - servant >= 0.19 && < 0.20
+  - servant-server >= 0.19 && < 0.20
+  - warp >= 3.3 && < 3.4
+  - aeson >= 2.0 && < 2.1
 
 ghc-options:
 - -Wall
@@ -35,6 +39,8 @@ ghc-options:
 
 library:
   source-dirs: src
+  dependencies:
+  - servant-server
 
 executables:
   launch-bay-v2-exe:
