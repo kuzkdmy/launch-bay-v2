@@ -1,14 +1,20 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Dto
- (ApiGlobalConfig (..)) where
+ (
+  IntVersion(..),
+  ApiGlobalConfig (..)
+ ) where
 
 import GHC.Generics (Generic)
 import Data.Aeson
 
+newtype IntVersion = IntVersion Int deriving (Show, Generic, ToJSON)
+
 data ApiGlobalConfig = ApiGlobalConfig
-  { version :: Int
+  { version :: IntVersion
   , lastModifiedBy :: String
   } deriving (Show,Generic)
 instance ToJSON ApiGlobalConfig
@@ -20,7 +26,6 @@ instance ToJSON ApiGlobalConfig
 --  deriving Show
 --
 --data EnvVarKey = EnvVarKey String
---data IntVersion = IntVersion Int
 --
 --
 --data ApiEnvVarOverride =
